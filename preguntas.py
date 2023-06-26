@@ -230,9 +230,6 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    
-    tb0 = tbl0.copy()
-    tb2 = tbl2.copy()
-    ans = pd.merge(tb0, tb2)
-    ans.drop(["_c0","_c2"], axis=1,inplace=True) 
-    return ans.groupby("_c1").sum().squeeze()
+    f = pd.merge(tbl0, tbl2, on='_c0')
+    ct = f.groupby('_c1')['_c5b'].sum()
+    return ct
