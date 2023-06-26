@@ -65,7 +65,8 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    return tbl0.groupby("_c1").mean()["_c2"]
+    Z = tbl0[['_c1', '_c2']].groupby(['_c1']).mean()
+    return Z.squeeze()
 
 
 def pregunta_05():
@@ -231,4 +232,4 @@ def pregunta_13():
     """
     tb0 = tbl0.copy()
     tb2 = tbl2.copy()
-    return pd.merge(tb2, tb0).drop(["_c0","_c2"], axis=1).groupby("_c1").sum().squeeze()
+    return pd.merge(tb2, tb0).drop(["_c0","_c2"], axis=1, inplace=True).groupby("_c1").sum().squeeze()
