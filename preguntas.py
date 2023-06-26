@@ -1,4 +1,4 @@
-"""
+-"""
 Laboratorio - Manipulación de Datos usando Pandas
 -----------------------------------------------------------------------------------------
 
@@ -232,4 +232,6 @@ def pregunta_13():
     """
     tb0 = tbl0.copy()
     tb2 = tbl2.copy()
-    return pd.merge(tb2, tb0).drop(["_c0","_c2"], axis=1, inplace=True).groupby("_c1").sum().squeeze()
+    ans = pd.merge(tb0, tb2)
+    ans.drop(["_c0","_c2"], axis=1,inplace=True) 
+    return ans.groupby("_c1").sum().squeeze()
