@@ -230,6 +230,7 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
+    
     tb0 = tbl0.copy()
     tb2 = tbl2.copy()
     ans = pd.merge(tb0, tb2)
